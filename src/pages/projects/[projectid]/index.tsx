@@ -78,7 +78,7 @@ export default function App () {
           alt={getProject.data?.title as string}
           width={500} height={500} />
         <p>{getProject.data?.description}</p>
-    
+
         <p>{getProject.data?.likes.length}</p>
         {/* {void console.log(router.query)} */}
         {getProject.data?.likes && getProject.data?.likes.length > 0 ? (

@@ -27,9 +27,7 @@ export default function App (props: IAppProps) {
   return (
     <LayoutWithSideBar>
            <div 
-           className='max-w-3xl justify-center mx-auto m-2'
-           >
-       
+           className='max-w-3xl justify-center mx-auto m-2 space-y-4'>
        {showCommunityForm ? <button 
        className='top-15 right-5 fixed rounded-lg bg-white border-gray-200 py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700'
        onClick={() => setShowCommunityForm(false)}>Cancel</button> : <button 
@@ -58,70 +56,61 @@ export default function App (props: IAppProps) {
         className='btn btn-block btn-primary justify-center'
         type="submit">Submit</button>
       </form>}
-      {/* <button 
-      className=' top-15 right-5 fixed rounded-lg bg-white border-gray-200 py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700'
-      onClick={() => getAllCommunities.refetch()}>See All Communities</button> */}
-
       <div>
       <h1
-      className='text-3xl font-bold text-center'
+      className='text-3xl font-bold text-center mb-10'
       >Community</h1>
         {getAllCommunities.data?.map((community) => {
           return (
-            <div key={community.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-      <Link href={`/community/\${community.slug}`}>
+            <div key={community.id} className="bg-white rounded-lg shadow-md overflow-hidden mb-10">
         <Link
         href={`/community/${community.slug}`}
         className="block">
-          <div className="p-4">
-            <h1 className="text-xl font-semibold mb-2">{community.name}</h1>
-            <p className="text-gray-600 text-sm mb-4">{community.description}</p>
-            {/* <p className="text-gray-500 text-sm">{community.slug}</p> */}
-            <div className="mt-4">
+          <div className="p-5 py-8 mt-5 space-y-4 mb-5">
+            <h1 className="text-xl font-semibold mb-2 text-gray-900">{community.name}</h1>
+            <p className="text-gray-800 text-sm mb-4">{community.description}</p>
+            <div className="mt-5">
               {community.members.map((member) => (
                 <div key={member.id} className="flex items-center">
                   <p className="text-gray-700 font-semibold">{member.name}</p>
                   {/* <p className="text-gray-500 text-sm ml-2">{member.email}</p> */}
                 </div>
               ))}
-            </div>
-          </div>
-        </Link>
-      </Link>
-    </div>
-                )
-              })}
-              {/* <p>{community.permissions.map((permission) => {
-                return (
-                  <div key={permission.id}>
-                    <p>{permission.role}</p>
-                  </div>
-                )
-              })}</p> */}
               {getAllCommunities.data?.map((permission) => {
                 return(
                   <div key={permission.id}>
                     <p>{permission.permissions.map((permission) => {
                       return (
                         <div key={permission.id}>
-                          <p>{permission.role}</p>
+                         <p>{permission.role}</p>
                         </div>
                       )
-                    })
-                    
-                    }</p>
+                    })}
+                </p>
                   </div>
-                )
-              })}
-            {/* </div> */}
-          {/* ) */}
-        {/* })} */}
+                )})}
+            </div>
+          </div>
+        </Link>
+    </div>)})}
+              
       </div>
-
     </div>
     </LayoutWithSideBar>
   );
 }
+
+
+   {/* <p>{community.permissions.map((permission) => {
+                return (
+                  <div key={permission.id}>
+                    <p>{permission.role}</p>
+                  </div>
+                )
+              })}</p> */}
+              {/* <button 
+      className=' top-15 right-5 fixed rounded-lg bg-white border-gray-200 py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700'
+      onClick={() => getAllCommunities.refetch()}>See All Communities</button> */}
 // import * as React from 'react';
 // import { api } from '~/utils/api';
 // import { useForm } from 'react-hook-form';

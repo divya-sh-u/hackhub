@@ -3,6 +3,7 @@ import { LayoutWithSideBar } from '~/Layout/LayoutWithSidebar';
 import {Router,useRouter} from 'next/router';
 import { api } from '~/utils/api';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 export interface IAppProps {
 }
@@ -28,31 +29,33 @@ export default function App (props: IAppProps) {
   const {register,handleSubmit,reset} = useForm()
   return (
     <LayoutWithSideBar>
-      <div
-        className='max-w-3xl m-2 flex flex-col space-y-4'>
-      
-      <div>
-      <h1 className='text-center text-3xl '>
-        {getCommunityBySlug.data?.name}    
-      </h1>   
-      </div>    
-      {/* <div className='max-w-3xl justify-right mx-auto'> */}
-        {/* <div className='flex flex-col'> */}
-        <div className='flex flex-col'>
-        <h2>Description:</h2>
-        <h3>{getCommunityBySlug.data?.description}</h3>
-        </div>
-
-       <h3>{getCommunityBySlug.data?.members.length}</h3>
-       <button onClick={()=>{
+      <div className='container mx-auto mt-10 px-4'>
+  <h1 className='text-center text-3xl font-bold mb-5'>
+    {getCommunityBySlug.data?.name}
+  </h1>
+  <div className='flex flex-col mb-5 bg-blue-100 p-5 rounded-lg'>
+    <h2 className='font-bold text-gray-800'>Description:</h2>
+    <h3 className='mt-2 text-gray-400'>{getCommunityBySlug.data?.description}</h3>
+  </div>
+  <div className='flex items-center mb-5 space-x-3'>
+    <h3 className='text-xl font-bold mr-3'>
+      {getCommunityBySlug.data?.members.length}
+    </h3>
+    <button 
+      className='bg-blue-500 m-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'
+      onClick={()=>{
         createCommunityMember.mutate({
           communityId:getCommunityBySlug.data?.id as string
         },
         {
           onSuccess:()=>getCommunityBySlug.refetch()
         })
-      }}>Join</button>
-      <button onClick={()=>{
+      }}>
+      Join
+    </button>
+    <button 
+      className='bg-red-500 m-2 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50'
+      onClick={()=>{
         deleteCommunityMember.mutate({
           communityId:getCommunityBySlug.data?.id as string
         },
@@ -62,52 +65,70 @@ export default function App (props: IAppProps) {
             router.push("/community")
           }
         })
-      }}>Leave</button>
-      {getCommunityBySlug.data?.permissions.map((permission)=>{
-        return <div key={permission.id}>
-          <h4>{permission.name}
-          </h4>
+      }}>
+      Leave
+    </button>
+  </div>
+  <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-5'>
+    {getCommunityBySlug.data?.permissions.map((permission)=>{
+      return (
+        <div key={permission.id} className='p-5 bg-gray-100 rounded-lg'>
+          <h4 className='font-bold text-gray-500'>{permission.name}</h4>
           <p>{permission.role}</p>
         </div>
-      })
-      }
-      {getCommunityBySlug.data?.members.map((member)=>{
-        return <div key={member.id}>
-          <h4>{member.name}
-          </h4>
+      )
+    })}
+  </div>
+  <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-5 text-gray-400'>
+    {getCommunityBySlug.data?.members.map((member)=>{
+      return (
+        <div key={member.id} className='p-5 bg-gray-100  rounded-lg'>
+          <h4 className='font-bold text-gray-500'>{member.name}</h4>
           <p>{member.points}</p>
-          <img  src={member.image as string} alt={member.name as string} />
-          {/* <p>{member.email}</p> */}
+          <img src={member.image as string} alt={member.name as string} className='w-10 h-10 rounded-full object-cover' />
         </div>
+      )
+    })}
+  </div>
+  <form 
+    onSubmit={handleSubmit((data)=>{
+      sendMessageToCommunity.mutate({
+        communityId:getCommunityBySlug.data?.id as string,
+        text:data.text
+      },
+      {
+        onSuccess:()=>{
+          getCommunityMessages.refetch()
+          toast.success('Message sent')
+          reset()
+        }
       })
-      }
-      <form onSubmit={handleSubmit((data)=>{
-        sendMessageToCommunity.mutate({
-          communityId:getCommunityBySlug.data?.id as string,
-          text:data.text
-        },
-        {
-          onSuccess:()=>{
-            getCommunityMessages.refetch()
-            reset()
-          }
-        })
-      })}>
-        <input {...register("text")} type="text" />
-        <button type="submit">Send</button>
-      </form>
-      {getCommunityMessages.data?.map((message)=>{
-        return <div key={message.id}>
-          <h4>{message.sender.name}
-          </h4>
+    })}
+    className='mb-5'>
+    <input 
+      {...register("text")} 
+      type="text" 
+      placeholder='Type your message...'
+      className='border border-gray-400 text-black  rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 w-full'
+    />
+    <button 
+      type="submit"
+      className='bg-blue-500 m-2 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'>
+      Send
+    </button>
+  </form>
+  <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+    {getCommunityMessages.data?.map((message)=>{
+      return (
+        <div key={message.id} className='p-5 bg-gray-400 rounded-lg'>
+          <h4 className='font-bold'>{message.sender.name}</h4>
           <p>{message.text}</p>
-          {/* <p>{message.sender.image}</p> */}
-          <img  src={message.sender.image as string} alt={message.sender.name as string} />
-      </div>
-      })}
-     
-     </div> 
-        
+          <img src={message.sender.image as string} alt={message.sender.name as string} className='w-10 h-10 rounded-full object-cover' />
+        </div>
+      )
+    })}
+  </div>
+</div>
     </LayoutWithSideBar>
   );
 }

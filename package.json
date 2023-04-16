@@ -31,6 +31,7 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.8.0",
     "react-simple-typewriter": "^5.0.1",
+    "react-social-icons": "^5.15.0",
     "slugify": "^1.6.6",
     "superjson": "1.12.2",
     "validator": "^13.9.0",

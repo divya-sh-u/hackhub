@@ -2,11 +2,12 @@ import * as React from 'react';
 // import { interaction } from '~/pages';
 import asdf from '~/assets/Interaction Design-pana.svg'
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 export interface IThirdPageProps {
 }
 
-export default function ThirdPage (props: IThirdPageProps) {
+function ThirdPage (props: IThirdPageProps) {
   return (
     <div className='bg-white h-screen'>
   <div className='grid grid-cols-12 place-items-center'>
@@ -25,3 +26,4 @@ export default function ThirdPage (props: IThirdPageProps) {
 </div>
   );
 }
+export default dynamic(() => Promise.resolve(ThirdPage), {ssr: false})

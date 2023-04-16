@@ -1,10 +1,11 @@
 import * as React from 'react';
 import asdffads from '~/assets/Mobile development-amico.svg'
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 export interface ISecondPageProps {
 }
 
-export default function SecondPage (props: ISecondPageProps) {
+function SecondPage (props: ISecondPageProps) {
   return (
     <div className='bg-black h-screen'>
       <div className='grid grid-cols-12 place-items-center'>
@@ -29,3 +30,5 @@ export default function SecondPage (props: ISecondPageProps) {
     </div>
   );
 }
+
+export default dynamic (() => Promise.resolve(SecondPage), {ssr: false})

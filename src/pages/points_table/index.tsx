@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { LayoutWithSideBar } from '~/Layout/LayoutWithSidebar';
 import { api } from '~/utils/api';
-import { useSession } from 'next-auth/react';
+import { useSession,getSession } from 'next-auth/react';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -14,7 +14,16 @@ export default function App (props: IAppProps) {
      const [users, setUsers] = React.useState([]);
   const [updatedYourPoints, setUpdatedYourPoints] = useState(true)
   const router = useRouter()
-  const {data:session}= useSession();
+  // const {data:session}= useSession();
+  // async function getSession() {
+    // const session = await getSession();
+    // // if (!session) {
+    //   // router.push('/login');
+    // }/
+
+    const session = api.auth.getSession.useQuery()
+
+    // getSession();
   const updateUserPointsOnTheBasisOfNumberOfProjectsAndNumberOfBlogsAndNumberOfFollowers =
   api.user.updateUserPointsOnTheBasisOfNumberOfProjectsAndNumberOfBlogsAndNumberOfFollowers.useMutation({
 
@@ -42,7 +51,7 @@ export default function App (props: IAppProps) {
          className="btn btn-primary top-15 right-5 fixed"
          onClick={() => {updateUserPointsOnTheBasisOfNumberOfProjectsAndNumberOfBlogsAndNumberOfFollowers.mutate(
        {
-         userId: session?.user.id as string,
+         userId: session.data?.user.id as string,
        },
        {
          onSuccess() {

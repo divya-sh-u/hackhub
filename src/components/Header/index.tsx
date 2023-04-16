@@ -5,6 +5,8 @@ import { BiUser} from 'react-icons/bi';
 import { useTheme } from "next-themes";
 // import {hackhub} from '~/assets/Hack hub (1).svg'
 // hackhub\src\assets\Hack hub (1).svg
+// import { getSession } from "next-auth/react";
+import {api} from "~/utils/api";
 import { FaSun, FaMoon } from 'react-icons/fa'
 import Link from "next/link";
 interface HeaderProps{
@@ -24,12 +26,15 @@ export const Header: FC<HeaderProps> = () => {
     //       setTheme(Theme.Light)
     //   }
 
-
+    // const getSession = async () => {
+    //  await api.auth.getSession.useQuery()  }
+    // const   asdf = getsession()
+      
     const {data:session}= useSession();
     return (<>  
-    <div className="navbar bg-black">
+    <div className="navbar bg-black text-gray-400">
   <div className="navbar-start">
-    <div className="dropdown">
+    <div className="dropdown ">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
@@ -59,6 +64,7 @@ export const Header: FC<HeaderProps> = () => {
     <Link 
     href={'/'}
     className="text-green-500 text-2xl font-bold pl-5">HackHub</Link>
+
     {/* function with icons for toggling theme  */}
     {/* call theme toggle function here */}
     {/* call theme toggle function here */}

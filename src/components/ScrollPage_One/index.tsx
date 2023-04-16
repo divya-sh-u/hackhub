@@ -1,10 +1,12 @@
 import * as React from 'react';
 import asdfasdasdf from '~/assets/Open source-bro.svg'
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
 export interface IFirstPageProps {
 }
 
-export default function FirstPage (props: IFirstPageProps) {
+function FirstPage (props: IFirstPageProps) {
   return (
     <div className='h-screen bg-white'>
       <div className='grid grid-cols-12 place-items-center'>
@@ -30,3 +32,5 @@ export default function FirstPage (props: IFirstPageProps) {
     </div>
   );
 }
+
+export default ((dynamic(() => Promise.resolve(FirstPage), {ssr: false})))

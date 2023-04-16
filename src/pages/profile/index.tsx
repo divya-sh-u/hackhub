@@ -87,7 +87,8 @@ export default function App (props: IAppProps) {
         
         {
           onSuccess: () => {
-            console.log('success');
+            // console.log('success');
+            toast.success('user created')
           },
         }
       );
@@ -114,90 +115,154 @@ export default function App (props: IAppProps) {
     <LayoutWithSideBar>
       {/* <div className='max-w-3xl justify-right mx-auto'> */}
         {/* <div className='flex flex-col'> */}
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form 
+        className='mt-8 grid lg:grid-cols-1 gap-4 space-y-3 mb-10'
+        onSubmit={handleSubmit(onSubmit)}>
         {currentStep === 0 && (
           <div id="nameStep">
             <label htmlFor="name">Name</label>
-            <input type="text" {...register('name')} />
+            <input 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            type="text" {...register('name')} />
           </div>
         )}
         {currentStep === 1 && (
           <div id="aboutStep">
-            <label htmlFor="description">Description</label>
-            <input type="text" {...register('description')} />
+            <label 
+            
+            htmlFor="description">Description</label>
+            <input type="text" 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            {...register('description')} />
           </div>
         )}
         {currentStep === 2 && (
-          <div id="education">
+          <div id="education"
+          className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+          >
             <label htmlFor="currentCollege">Current College</label>
-            <input type="text" {...register('currentcollege')} />
+            <input 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            type="text" {...register('currentcollege')} />
             <label htmlFor="degree">Degree</label>
-            <input type="text" {...register('degree')} />
+            <input type="text" 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            {...register('degree')} />
             <label htmlFor="fieldOfStudy">Field of Study</label>
-            <input type="text" {...register('fieldOfStudy')} />
+            <input 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            type="text" {...register('fieldOfStudy')} />
             <label htmlFor="startDate">Start Date</label>
-            <input type="date" {...register('startDateeducation')} />
+            <input 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            type="date" {...register('startDateeducation')} />
             <label htmlFor="endDate">End Date</label>
-            <input type="date" {...register('endDateeducation')} />
+            <input 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            type="date" {...register('endDateeducation')} />
             <label htmlFor="description">Description</label>
-            <input type="text" {...register('descriptionedu')} />
+            <input 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            type="text" {...register('descriptionedu')} />
           </div>
         )}
         {currentStep === 3 && (
-            <div id="experience">
+            <div id="experience"
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            >
                 <label htmlFor="company">Company</label>
-                <input type="text" {...register('company')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('company')} />
                 <label htmlFor="position">Position</label>
-                <input type="text" {...register('position')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('position')} />
                 <label htmlFor="startDate">Start Date</label>
-                <input type="date" {...register('startDateexp')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="date" {...register('startDateexp')} />
                 <label htmlFor="endDate">End Date</label>
-                <input type="date" {...register('endDateexp')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="date" {...register('endDateexp')} />
                 <label htmlFor="resume">Resume</label>
-                <input type="text" {...register('resume')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('resume')} />
                 <label htmlFor="description">Description</label>
-                <input type="text" {...register('descriptionexperience')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('descriptionexperience')} />
             </div>
         )}
         {currentStep === 4 && (
-            <div id="skills">
+            <div 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            id="skills">
                 <label htmlFor="skills">Skills</label>
-                <input type="text" {...register('skills')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('skills')} />
             </div>
         )}
         {currentStep === 5 && (
-            <div id="socialLinks">
+            <div 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            id="socialLinks">
                 <label htmlFor="github">Github</label>
-                <input type="text" {...register('github')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('github')} />
                 <label htmlFor="linkedin">Linkedin</label>
-                <input type="text" {...register('linkedin')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('linkedin')} />
                 <label htmlFor="twitter">Twitter</label>
-                <input type="text" {...register('twitter')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('twitter')} />
                 <label htmlFor="instagram">Instagram</label>
-                <input type="text" {...register('instagram')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('instagram')} />
             </div>
         )}
         {currentStep === 6 && (
-            <div id="contact">
+            <div 
+            className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+            id="contact">
                 <label htmlFor="email">Email</label>
-                <input type="text" {...register('email')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('email')} />
                 <label htmlFor="phone">Phone</label>
-                <input type="text" {...register('phone')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('phone')} />
                 <label htmlFor="address">Address</label>
-                <input type="text" {...register('address')} />
+                <input 
+                className='bg-gray-200 border border-gray-200 rounded py-2 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full'
+                type="text" {...register('address')} />
             </div>
         )}
         {showPreviousButton && (
-            <button type="button" onClick={previousStep} disabled={previousButtonDisabled}>
+            <button type="button" 
+            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+            onClick={previousStep} disabled={previousButtonDisabled}>
                 {previousButtonDisabled ? 'Start' : 'Previous'}
             </button>
         )}
         {showNextButton && (
-            <button type="button" onClick={nextStep}   disabled={nextButtonDisabled}>
+            <button type="button" 
+            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+            onClick={nextStep}   disabled={nextButtonDisabled}>
                 {nextButtonDisabled ? 'Finish' : 'Next'}
             </button>
         )}
-        <button type="submit">Submit</button>
+        <button 
+        className='btn btn-ghost border-gray-200 border-1 btn-block '
+        type="submit">Submit</button>
         </form>
             
             {/* </div> */}
