@@ -7,9 +7,10 @@ export const LayoutWithSideBar: FC<LayoutWithSideBarProps> = ({children}:React.P
     return (
         <>
         <Header/>
+        <div className="flex grid-cols-12 space-x-20">
         <SideBar/>
         {children}
-        
+        </div>
         </>
     )   
 };

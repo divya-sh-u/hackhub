@@ -9,8 +9,17 @@ export default function SecondPage (props: ISecondPageProps) {
     <div className='bg-black h-screen'>
       <div className='grid grid-cols-12 place-items-center'>
       <div className='col-span-6 h-full justify-center items-center flex flex-col'>
-      <h1 className='text-4xl font-bold text-white'>Interact with other hackers</h1>
-      <p className='text-2xl text-white'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, quae.</p>
+        <p>
+        Find a wealth of valuable insights, export tips and projects
+        </p>
+        <p>to help you grow your skills and knowledge.</p>
+      <p className='text-2xl text-white'>
+        <p>creativity and growth.</p>
+        <p>
+        On this exciting journey, as we explore new horizons
+        </p>
+        <p>and share our passion for knowledge,</p>
+        </p>
     </div>
     <div className='col-span-6 h-full'>
       <Image src={asdffads} alt="mobile" />

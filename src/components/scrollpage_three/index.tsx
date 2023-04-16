@@ -13,9 +13,13 @@ export default function ThirdPage (props: IThirdPageProps) {
     <div className='col-span-6 h-full'>
       <Image src={asdf} alt="interaction" />
     </div>
-    <div className='col-span-6 h-full justify-center items-center flex flex-col'>
+    <div className='col-span-6 h-full justify-center items-center flex flex-col ml-20'>
       <h1 className='text-4xl font-bold text-black'>Interact with other hackers</h1>
-      <p className='text-2xl text-black'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, quae.</p>
+      <p className='text-2xl text-black text-right'>
+        <p>Join the community and find</p>
+        <p> like minded people to collaborate</p>
+        <p> with and build your own community</p>
+      </p>
     </div>
   </div>
 </div>

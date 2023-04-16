@@ -18,5 +18,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  images: {
+    domains: ["https://mmxojpcdznhhxqhlbxtr.supabase.co/storage/v1/object/public/image/blogs","https://mmxojpcdznhhxqhlbxtr.supabase.co" , "mmxojpcdznhhxqhlbxtr.supabase.co","daisyui.com"],
+  },
+
 };
 export default config;

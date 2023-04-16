@@ -7,6 +7,7 @@ import { useTheme} from "~/utils/themeContext";
 import "~/styles/globals.css";
 import { useState } from "react";
 import { ThemeProvider } from 'next-themes'
+import { Toaster } from "react-hot-toast";
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -19,6 +20,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
     <SessionProvider session={session}>
       <ThemeContext.Provider value={{ theme, setTheme }} >
       <ThemeProvider>
+      <Toaster />
       <Component {...pageProps} />
       </ThemeProvider>
       </ThemeContext.Provider>
