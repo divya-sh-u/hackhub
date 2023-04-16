@@ -139,7 +139,7 @@ export default function App (props: IAppProps) {
        {/* <div className="flex flex-col items-center justify-center h-screen bg-gray-100"> */}
   <div className=" w-full bg-white rounded-lg shadow-lg">
     <div className="flex flex-col items-center space-y-4">
-      <div className="w-40 h-40 rounded-full overflow-hidden">
+      <div className="w-40 h-40 rounded-full">
         <img src={showableProfileofUser.data?.image as string} alt="Profile Picture"/>
       </div>
       <div className="text-2xl font-bold">
