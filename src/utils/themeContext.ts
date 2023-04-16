@@ -9,10 +9,5 @@ export type ThemeContextType = {
   setTheme: (Theme: Theme) => Theme.Light ;
 }
 
-export const ThemeContext = createContext<ThemeContextType>({ theme: Theme.Dark, setTheme: 
-() => {
-    // throw new Error('setTheme function not implemented');
-    console.log('theme changed')
-}
-});
+export const ThemeContext = createContext<ThemeContextType>({ theme: Theme.Dark, setTheme: () => {console.log('setTheme'); return Theme.Light }});
 export const useTheme = () => useContext(ThemeContext);
