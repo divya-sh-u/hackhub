@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { api } from '~/utils/api';
-import { useSession } from 'next-auth/react';
+// import { useSession } from 'next-auth/react';
+// import { getSession } from 'next-auth/react';
 // import { Router } from 'react-router-dom';
 import Image from 'next/image';
 import { FcLike, FcLikePlaceholder } from 'react-icons/fc';

@@ -145,7 +145,7 @@ export default function App (props: IAppProps) {
       <div className="text-2xl font-bold">
         {showableProfileofUser.data?.name}
       </div>
-      <div className="text-xl font-bold">
+      <div className="text-xl font-bold text-black">
         {showableProfileofUser.data?.about?.description}
       </div>
       <div className="flex space-x-4 text-xl font-bold">

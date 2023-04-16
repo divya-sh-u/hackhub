@@ -48,7 +48,9 @@ export default function App (props: IAppProps) {
           communityId:getCommunityBySlug.data?.id as string
         },
         {
-          onSuccess:()=>getCommunityBySlug.refetch()
+          onSuccess:()=>{
+            toast.success("Joined Community")
+          }
         })
       }}>
       Join
@@ -61,7 +63,8 @@ export default function App (props: IAppProps) {
         },
         {
           onSuccess:()=>{
-            getCommunityBySlug.refetch()
+            // getCommunityBySlug.refetch()
+            toast.success("Left Community")
             router.push("/community")
           }
         })
