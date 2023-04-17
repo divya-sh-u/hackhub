@@ -21,9 +21,9 @@ function ThirdPage (props: IThirdPageProps) {
                   
              </p>
       <p className='text-xl text-right '>
-        <p>Join the community and find</p>
-        <p> like minded people to collaborate</p>
-        <p> with and build your own community</p>
+        <p>Join us to connect, </p>
+        <p> Collaborate with like minded  </p>
+        <p>Individuals who share you interest</p>
       </p>
     </div>
   </div>

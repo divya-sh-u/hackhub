@@ -8,21 +8,22 @@ export interface ISecondPageProps {
 function SecondPage (props: ISecondPageProps) {
   return (
     <div className='h-screen bg-black flex items-center justify-center'>
-    <div className='grid grid-cols-12 gap-4'>
+    <div className='grid grid-cols-12 gap-4 justify-between'>
       
     <div className='col-span-6 h-full flex flex-col justify-center pink-text-gradient'>
-      <p className='text-4xl font-bold  ml-20 '>
-                  <p>Find a wealth of valuable insights, </p>
-                  <p>export tips and projects ..</p>
+      <p className='text-4xl font-bold mr-10'>
+                  <p>
+                    Join us on  </p>
+                  <p>This Exciting Journey </p>
                     
                </p>
-        <p className='text-xl  ml-20'>
-          <p>Join the community and find</p>
-          <p> like minded people to collaborate</p>
-          <p> with and build your own community</p>
+        <p className='text-xl mr-10'>
+          <p>Explore new Horizons</p>
+          <p>And share our passion for </p>
+          <p>Knowledge, creativity and Growth</p>
         </p>
       </div>
-      <div className='col-span-6 h-full flex items-center justify-center'>
+      <div className='col-span-6 h-full flex items-center justify-center ml-10'>
         <Image src={asdffads} alt="mobile" />
       </div>
       
