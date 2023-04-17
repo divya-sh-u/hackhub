@@ -23,6 +23,11 @@ Team Members : Divyanshu Vashishth, Abhinav Anand, Aryan Rajput, Siftain Ahmad
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`. It is a fullstack starter kit for Next.js, Prisma, NextAuth.js and Tailwind CSS basically 
 for building frontend pages and components queries and mutations are handled by trpc and for database we are using postgresql in Supabase and for authentication we are using nextauth.js.
 
+## Video Demo
+Sir , Video was not uploading on Youtube so We did late submission Here we are providing the link of our project demo video on loom share
+## 🔗 Link
+
+(https://www.loom.com/share/19fe5e516ca242a9b1c1654bcc97245c)
 
 
 
